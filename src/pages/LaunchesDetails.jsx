@@ -20,10 +20,14 @@ export function LaunchesDetails() {
 
   useEffect(() => {
     setLoading(true);
-    getLaunchByFlightNumber(launchId).then((data) => {
-      setLaunch(data);
-      setLoading(false);
-    });
+    try {
+      getLaunchByFlightNumber(launchId).then((data) => {
+        setLaunch(data);
+        setLoading(false);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }, [launchId]);
 
   if (loading) {

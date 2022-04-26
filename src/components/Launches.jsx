@@ -13,7 +13,7 @@ export function Launches({ launches }) {
         <MotionBox
         initial={{opacity:0,scale:0}}
         animate={{opacity:1, scale:1}}
-        transition={{duration:0.6}}
+        transition={{duration:0.6, type: 'spring',stiffness: 50}}
           bg="gray.100"
           m={4}
           p={4}

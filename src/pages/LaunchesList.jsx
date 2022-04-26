@@ -9,10 +9,14 @@ export function LaunchesList() {
 
   useEffect(() => {
     setLoading(true);
-    getAllLaunches().then((call) => {
-      setLaunches(call);
-      setLoading(false);
-    });
+    try {
+      getAllLaunches().then((call) => {
+        setLaunches(call);
+        setLoading(false);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
 
   if (loading) {
